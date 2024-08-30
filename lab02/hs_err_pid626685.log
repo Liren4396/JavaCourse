@@ -1,0 +1,406 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Cannot create worker GC thread. Out of system resources.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (workerManager.hpp:87), pid=626685, tid=626686
+#
+# JRE version:  (17.0.8.1+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.8.1+1, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, parallel gc, linux-amd64)
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:/import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/lombok/lombok-1.18.28.jar /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/server/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar -configuration /import/glass/5/z5369144/.config/Code/User/globalStorage/redhat.java/1.22.1/config_ss_linux -data /import/glass/5/z5369144/.config/Code/User/workspaceStorage/69914156e646864067839f970fdd1256/redhat.java/ss_ws
+
+Host: 12th Gen Intel(R) Core(TM) i5-12500T, 12 cores, 15G, Debian GNU/Linux 11 (bullseye)
+Time: Mon Sep 18 16:48:23 2023 AEST elapsed time: 0.004253 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f6324027390):  JavaThread "Unknown thread" [_thread_in_vm, id=626686, stack(0x00007f632a32d000,0x00007f632a42e000)]
+
+Stack: [0x00007f632a32d000,0x00007f632a42e000],  sp=0x00007f632a42c5f0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xee4991]  VMError::report_and_die(int, char const*, char const*, __va_list_tag*, Thread*, unsigned char*, void*, void*, char const*, int, unsigned long)+0x1a1
+V  [libjvm.so+0xee555d]  VMError::report_and_die(Thread*, char const*, int, unsigned long, VMErrorType, char const*, __va_list_tag*)+0x2d
+V  [libjvm.so+0x60a69c]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*, ...)+0xdc
+V  [libjvm.so+0xf1836f]  WorkerManager::add_workers(WorkGang*, unsigned int, unsigned int, unsigned int, os::ThreadType, bool)+0x18f
+V  [libjvm.so+0xf1850a]  WorkGang::initialize_workers()+0x4a
+V  [libjvm.so+0xc3b70d]  ParallelScavengeHeap::initialize()+0x15d
+V  [libjvm.so+0xe93592]  universe_init()+0xd2
+V  [libjvm.so+0x7fd387]  init_globals()+0x37
+V  [libjvm.so+0xe6a9d7]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x387
+V  [libjvm.so+0x8bbe82]  JNI_CreateJavaVM+0x52
+C  [libjli.so+0x4a0f]  JavaMain+0x8f
+C  [libjli.so+0x8d09]  ThreadJavaMain+0x9
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f632b8bba80, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007f6324027390 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=626686, stack(0x00007f632a32d000,0x00007f632a42e000)]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+
+[error occurred during error reporting (printing heap information), id 0xb, SIGSEGV (0xb) at pc=0x00007f632b23da1a]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.002 Loaded shared library /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.002 Protecting memory [0x00007f632a32d000,0x00007f632a331000] with protection modes 0
+
+
+Dynamic libraries:
+c0000000-100000000 ---p 00000000 00:00 0 
+564548ab7000-564548ab8000 r--p 00000000 00:b1 20669498                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/bin/java
+564548ab8000-564548ab9000 r-xp 00001000 00:b1 20669498                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/bin/java
+564548ab9000-564548aba000 r--p 00002000 00:b1 20669498                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/bin/java
+564548aba000-564548abb000 r--p 00002000 00:b1 20669498                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/bin/java
+564548abb000-564548abc000 rw-p 00003000 00:b1 20669498                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/bin/java
+56454900c000-564549054000 rw-p 00000000 00:00 0                          [heap]
+7f63123e5000-7f6312655000 rwxp 00000000 00:00 0 
+7f6312655000-7f631991c000 ---p 00000000 00:00 0 
+7f631991c000-7f6319b8c000 rwxp 00000000 00:00 0 
+7f6319b8c000-7f6319ead000 ---p 00000000 00:00 0 
+7f6319ead000-7f631a11d000 rwxp 00000000 00:00 0 
+7f631a11d000-7f63213e5000 ---p 00000000 00:00 0 
+7f63213e5000-7f6324000000 r--s 00000000 00:b1 20670810                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/modules
+7f6324000000-7f632404a000 rw-p 00000000 00:00 0 
+7f632404a000-7f6328000000 ---p 00000000 00:00 0 
+7f63299e7000-7f6329dd5000 rw-p 00000000 00:00 0 
+7f6329dd5000-7f6329dd6000 ---p 00000000 00:00 0 
+7f6329dd6000-7f6329ed7000 rw-p 00000000 00:00 0 
+7f6329ed7000-7f632a0d7000 ---p 00000000 00:00 0 
+7f632a0d7000-7f632a0dd000 rw-p 00000000 00:00 0 
+7f632a0dd000-7f632a1c3000 ---p 00000000 00:00 0 
+7f632a1c3000-7f632a1c8000 rw-p 00000000 00:00 0 
+7f632a1c8000-7f632a2ae000 ---p 00000000 00:00 0 
+7f632a2ae000-7f632a2b3000 rw-p 00000000 00:00 0 
+7f632a2b3000-7f632a2ba000 ---p 00000000 00:00 0 
+7f632a2ba000-7f632a2c2000 rw-s 00000000 103:02 21495850                  /tmp/hsperfdata_z5369144/626685
+7f632a2c2000-7f632a2f7000 r--s 00000000 103:02 26218708                  /var/cache/nscd/passwd
+7f632a2f7000-7f632a304000 r--p 00000000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a304000-7f632a316000 r-xp 0000d000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a316000-7f632a31c000 r--p 0001f000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a31c000-7f632a31d000 ---p 00025000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a31d000-7f632a31e000 r--p 00025000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a31e000-7f632a31f000 rw-p 00026000 00:b1 20670725                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjava.so
+7f632a31f000-7f632a320000 rw-p 00000000 00:00 0 
+7f632a320000-7f632a322000 r--p 00000000 00:b1 20670712                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libinstrument.so
+7f632a322000-7f632a328000 r-xp 00002000 00:b1 20670712                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libinstrument.so
+7f632a328000-7f632a32b000 r--p 00008000 00:b1 20670712                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libinstrument.so
+7f632a32b000-7f632a32c000 r--p 0000a000 00:b1 20670712                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libinstrument.so
+7f632a32c000-7f632a32d000 rw-p 0000b000 00:b1 20670712                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libinstrument.so
+7f632a32d000-7f632a331000 ---p 00000000 00:00 0 
+7f632a331000-7f632a42e000 rw-p 00000000 00:00 0 
+7f632a42e000-7f632a43b000 r--p 00000000 103:02 5538089                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f632a43b000-7f632a4d5000 r-xp 0000d000 103:02 5538089                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f632a4d5000-7f632a570000 r--p 000a7000 103:02 5538089                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f632a570000-7f632a571000 r--p 00141000 103:02 5538089                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f632a571000-7f632a572000 rw-p 00142000 103:02 5538089                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f632a572000-7f632a574000 r--p 00000000 103:02 5538709                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f632a574000-7f632a578000 r-xp 00002000 103:02 5538709                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f632a578000-7f632a57a000 r--p 00006000 103:02 5538709                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f632a57a000-7f632a57b000 r--p 00007000 103:02 5538709                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f632a57b000-7f632a57c000 rw-p 00008000 103:02 5538709                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f632a57c000-7f632a7cf000 r--p 00000000 00:b1 20670839                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/server/libjvm.so
+7f632a7cf000-7f632b4f1000 r-xp 00253000 00:b1 20670839                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/server/libjvm.so
+7f632b4f1000-7f632b77e000 r--p 00f75000 00:b1 20670839                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/server/libjvm.so
+7f632b77e000-7f632b837000 r--p 01201000 00:b1 20670839                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/server/libjvm.so
+7f632b837000-7f632b86c000 rw-p 012ba000 00:b1 20670839                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/server/libjvm.so
+7f632b86c000-7f632b8c8000 rw-p 00000000 00:00 0 
+7f632b8c8000-7f632b8ea000 r--p 00000000 103:02 5538087                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f632b8ea000-7f632ba43000 r-xp 00022000 103:02 5538087                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f632ba43000-7f632ba92000 r--p 0017b000 103:02 5538087                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f632ba92000-7f632ba96000 r--p 001c9000 103:02 5538087                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f632ba96000-7f632ba98000 rw-p 001cd000 103:02 5538087                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f632ba98000-7f632ba9c000 rw-p 00000000 00:00 0 
+7f632ba9c000-7f632ba9d000 r--p 00000000 103:02 5538088                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f632ba9d000-7f632ba9f000 r-xp 00001000 103:02 5538088                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f632ba9f000-7f632baa0000 r--p 00003000 103:02 5538088                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f632baa0000-7f632baa1000 r--p 00003000 103:02 5538088                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f632baa1000-7f632baa2000 rw-p 00004000 103:02 5538088                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f632baa2000-7f632baa8000 r--p 00000000 103:02 5538707                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f632baa8000-7f632bab8000 r-xp 00006000 103:02 5538707                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f632bab8000-7f632babe000 r--p 00016000 103:02 5538707                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f632babe000-7f632babf000 r--p 0001b000 103:02 5538707                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f632babf000-7f632bac0000 rw-p 0001c000 103:02 5538707                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f632bac0000-7f632bac4000 rw-p 00000000 00:00 0 
+7f632bac4000-7f632bac7000 r--p 00000000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bac7000-7f632bad1000 r-xp 00003000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bad1000-7f632bad4000 r--p 0000d000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bad4000-7f632bad5000 ---p 00010000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bad5000-7f632bad6000 r--p 00010000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bad6000-7f632bad7000 rw-p 00011000 00:b1 20670749                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjli.so
+7f632bad7000-7f632bada000 r--p 00000000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632bada000-7f632baeb000 r-xp 00003000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632baeb000-7f632baf1000 r--p 00014000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632baf1000-7f632baf2000 ---p 0001a000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632baf2000-7f632baf3000 r--p 0001a000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632baf3000-7f632baf4000 rw-p 0001b000 103:02 5507238                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f632baf6000-7f632baf7000 ---p 00000000 00:00 0 
+7f632baf7000-7f632baf8000 r--p 00000000 00:00 0 
+7f632baf8000-7f632bafc000 r--p 00000000 00:b1 20670745                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjimage.so
+7f632bafc000-7f632bb0f000 r-xp 00004000 00:b1 20670745                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjimage.so
+7f632bb0f000-7f632bb15000 r--p 00017000 00:b1 20670745                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjimage.so
+7f632bb15000-7f632bb17000 r--p 0001c000 00:b1 20670745                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjimage.so
+7f632bb17000-7f632bb18000 rw-p 0001e000 00:b1 20670745                   /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/jre/17.0.8.1-linux-x86_64/lib/libjimage.so
+7f632bb18000-7f632bb1a000 rw-p 00000000 00:00 0 
+7f632bb1a000-7f632bb1b000 r--p 00000000 103:02 5538082                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f632bb1b000-7f632bb3b000 r-xp 00001000 103:02 5538082                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f632bb3b000-7f632bb43000 r--p 00021000 103:02 5538082                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f632bb43000-7f632bb44000 ---p 00000000 00:00 0 
+7f632bb44000-7f632bb45000 r--p 00029000 103:02 5538082                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f632bb45000-7f632bb46000 rw-p 0002a000 103:02 5538082                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f632bb46000-7f632bb47000 rw-p 00000000 00:00 0 
+7ffd12740000-7ffd12762000 rw-p 00000000 00:00 0                          [stack]
+7ffd127e8000-7ffd127ec000 r--p 00000000 00:00 0                          [vvar]
+7ffd127ec000-7ffd127ee000 r-xp 00000000 00:00 0                          [vdso]
+
+
+VM Arguments:
+jvm_args: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:/import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/lombok/lombok-1.18.28.jar 
+java_command: /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/server/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar -configuration /import/glass/5/z5369144/.config/Code/User/globalStorage/redhat.java/1.22.1/config_ss_linux -data /import/glass/5/z5369144/.config/Code/User/workspaceStorage/69914156e646864067839f970fdd1256/redhat.java/ss_ws
+java_class_path (initial): /import/glass/5/z5369144/.vscode/extensions/redhat.java-1.22.1-linux-x64/server/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+    uintx AdaptiveSizePolicyWeight                 = 90                                        {product} {command line}
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+    uintx GCTimeRatio                              = 4                                         {product} {command line}
+   size_t InitialHeapSize                          = 104857600                                 {product} {command line}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MaxNewSize                               = 357564416                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 524288                                    {product} {ergonomic}
+   size_t MinHeapSize                              = 104857600                                 {product} {command line}
+   size_t NewSize                                  = 34603008                                  {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+   size_t OldSize                                  = 70254592                                  {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1073741824                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseParallelGC                            = true                                      {product} {command line}
+
+Logging:
+Log output configuration:
+ #0: stdout all=off uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/import/reed/A/cs1531/.nvm/versions/node/v18.17.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/import/glass/5/z5369144/bin:/import/glass/5/z5369144/bin-pc.amd64.linux:/bin:/usr/bin:
+SHELL=/usr/local/bin/bash
+DISPLAY=:0.0
+ARCH=pc.amd64.linux
+LANG=en_AU.UTF-8
+TERM=xterm-256color
+
+Active Locale:
+LC_ALL=C
+LC_COLLATE=C
+LC_CTYPE=C
+LC_MESSAGES=C
+LC_MONETARY=C
+LC_NUMERIC=C
+LC_TIME=C
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGXFSZ: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.so, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: SIG_DFL, mask=00000000000000000000000000000000, flags=none, blocked
+    SIGINT: SIG_DFL, mask=00000000000000000000000000000000, flags=none, blocked
+   SIGTERM: SIG_DFL, mask=00000000000000000000000000000000, flags=none, blocked
+   SIGQUIT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+NAME="Debian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+uname: Linux 5.10.0-25-amd64 #1 SMP Debian 5.10.191-1 (2023-08-16) x86_64
+OS uptime: 10 days 2:07 hours
+libc: glibc 2.31 NPTL 2.31 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 62534/62534 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 2007824k/2007824k
+load average: 0.85 1.23 1.05
+
+/proc/meminfo:
+MemTotal:       16062596 kB
+MemFree:         3476312 kB
+MemAvailable:   12173092 kB
+Buffers:          546932 kB
+Cached:          7592756 kB
+SwapCached:       146568 kB
+Active:          7078072 kB
+Inactive:        4249080 kB
+Active(anon):     110500 kB
+Inactive(anon):  3148132 kB
+Active(file):    6967572 kB
+Inactive(file):  1100948 kB
+Unevictable:          64 kB
+Mlocked:              64 kB
+SwapTotal:        999420 kB
+SwapFree:         842988 kB
+Dirty:               180 kB
+Writeback:             0 kB
+AnonPages:       3019224 kB
+Mapped:           608192 kB
+Shmem:             71172 kB
+KReclaimable:     971584 kB
+Slab:            1147308 kB
+SReclaimable:     971584 kB
+SUnreclaim:       175724 kB
+KernelStack:       23632 kB
+PageTables:        38604 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     9030716 kB
+Committed_AS:    7702520 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       43436 kB
+VmallocChunk:          0 kB
+Percpu:            18432 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    864256 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      525428 kB
+DirectMap2M:    15933440 kB
+DirectMap1G:     1048576 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: [always] madvise never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 1439672K (peak: 1439672K)
+Resident Set Size: 17620K (peak: 17620K) (anon: 5592K, file: 12028K, shmem: 0K)
+Swapped out: 0K
+C-Heap outstanding allocations: 4467K, retained: 160K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads): 125068
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have): 65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers): 4194304
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: not supported
+cpu_memory_nodes: not supported
+active_processor_count: 4
+cpu_quota: not supported
+cpu_period: not supported
+cpu_shares: not supported
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 3943824 k
+memory_max_usage_in_bytes: not supported
+memory_swap_current_in_bytes: unlimited
+memory_swap_max_limit_in_bytes: unlimited
+maximum number of tasks: unlimited
+current number of tasks: 1152
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU: total 12 (initial active 4) (6 cores per cpu, 2 threads per core) family 6 model 151 stepping 5 microcode 0x26, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, clwb
+CPU Model and flags from /proc/cpuinfo:
+model name	: 12th Gen Intel(R) Core(TM) i5-12500T
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req umip pku ospke waitpkg gfni vaes vpclmulqdq tme rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr flush_l1d arch_capabilities
+
+Online cpus: 0-11
+Offline cpus: 
+BIOS frequency limitation: <Not Available>
+Frequency switch latency (ns): 0
+Available cpu frequencies: <Not Available>
+Current governor: powersave
+Core performance/turbo boost: <Not Available>
+
+Memory: 4k page, physical 16062596k(3475808k free), swap 999420k(842988k free)
+Page Sizes: 4k
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.8.1+1) for linux-amd64 JRE (17.0.8.1+1), built on Aug 24 2023 00:00:00 by "admin" with gcc 10.3.0
+
+END.
